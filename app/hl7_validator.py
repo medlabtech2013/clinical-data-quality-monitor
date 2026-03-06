@@ -1,26 +1,38 @@
+def parse_hl7(message):
+
+    segments = message.strip().split("\n")
+
+    parsed = {}
+
+    for segment in segments:
+
+        fields = segment.split("|")
+
+        seg_type = fields[0]
+
+        parsed[seg_type] = fields
+
+    return parsed
+
+
 def validate_hl7(message):
+
+    parsed = parse_hl7(message)
 
     errors = []
 
-    # Check required HL7 segments
+    required_segments = ["MSH", "PID", "OBR", "OBX"]
 
-    if "MSH" not in message:
-        errors.append("Missing MSH segment")
+    for seg in required_segments:
 
-    if "PID" not in message:
-        errors.append("Missing PID segment")
+        if seg not in parsed:
+            errors.append(f"Missing {seg} segment")
 
-    if "OBR" not in message:
-        errors.append("Missing OBR segment")
-
-    if "OBX" not in message:
-        errors.append("Missing OBX segment")
-
-    # If no issues found
     if len(errors) == 0:
         return {
             "status": "VALID",
-            "errors": []
+            "errors": [],
+            "segments_detected": list(parsed.keys())
         }
 
     return {

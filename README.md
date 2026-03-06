@@ -4,6 +4,17 @@ A healthcare data validation platform designed to monitor clinical data integrit
 
 The system analyzes HL7 clinical messages and laboratory results to identify missing segments, abnormal values, and potential data integrity issues during healthcare data exchange.
 
+## Dashboard Preview
+
+### Clinical Validation Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Compatibility Heatmap
+![Heatmap](screenshots/heatmap.png)
+
+### Risk Analysis
+![Risk](screenshots/risk_analysis.png)
+
 ## Features
 
 • HL7 message validation  
