@@ -15,6 +15,28 @@ The system analyzes HL7 clinical messages and laboratory results to identify mis
 ### Risk Analysis
 ![Risk](screenshots/risk_analysis.png)
 
+## System Architecture
+
+HL7 Message
+     │
+     ▼
+HL7 Parser
+     │
+     ▼
+Data Validation Engine
+     │
+     ▼
+Lab Result Validator
+     │
+     ▼
+Data Quality Score
+     │
+     ▼
+FastAPI API
+     │
+     ▼
+Clinical Dashboard
+
 ## Features
 
 • HL7 message validation  
